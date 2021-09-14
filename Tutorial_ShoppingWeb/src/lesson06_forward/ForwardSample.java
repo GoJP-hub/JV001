@@ -23,13 +23,13 @@ public class ForwardSample extends HttpServlet {
 	 * 　　※この特性のため、リダイレクトは別ウェブサイトへの遷移などに利用される
 	 *
 	 * 【サンプルコード】
-	 * リダイレクト：
-	 *    response.sendRedirect("./lesson06_Forward/redirect.jsp")
 	 * フォワード：
 	 *    ServletContext con = request.getServletContext();
 	 *    RequestDispatcher rd = con.getRequestDispatcher("/lesson06_Forward/redirect.jsp");
 	 *    rd.foward(request, response);
 	 *    // 恐らく、事前にリンク先をインスタンスに保持し、request/responseの際に、インスタンスを利用しているのでは
+	 * リダイレクト：
+	 *    response.sendRedirect("./lesson06_Forward/redirect.jsp")
 	 */
 
 	private static final long serialVersionUID = 1L;
