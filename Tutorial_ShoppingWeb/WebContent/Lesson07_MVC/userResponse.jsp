@@ -12,7 +12,7 @@
 		<p>名前:<%=user.getName() %></p>
 		<p>年齢:<%=user.getAge() %></p>
 		<form>
-			<input type="button" onclick="location.href='./Lesson06_MVC/userRequest.jsp'" value="戻る">
+			<input type="button" onclick="location.href='../Lesson07_MVC/userRequest.jsp'" value="戻る">
 		</form>
 	</body>
 </html>

@@ -8,7 +8,7 @@
 	<body>
 		<p>入力されたユーザは存在しません.</p>
 		<form>
-			<input type="button" onclick="location.href='./WEB-sample07/userRequest.jsp'" value="戻る">
+			<input type="button" onclick="location.href='../Lesson07_MVC/userRequest.jsp'" value="戻る">
 		</form>
 	</body>
 </html>

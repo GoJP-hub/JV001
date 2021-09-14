@@ -10,7 +10,7 @@
 	<body>
 		<p>インプットフォーム</p>
 		<%-- POSTTメソッドでテキストを送信 --%>
-		<form action="../ControllerServlet" method="post">
+		<form action="../lesson07_mvc/ControllerServlet" method="post">
 			<p>IDを入力してください：<input type="text" name="id"></p>
 			<p>IDはweb01またはweb02です</p>
 			<input type="submit" value="リクエスト">

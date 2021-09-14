@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * Java入門 MVCモデルクラス.<br>
  * C（コントローラ）
  */
-@WebServlet("/ControllerServlet")
+@WebServlet("/lesson07_mvc/ControllerServlet")
 public class ControllerServlet extends HttpServlet {
 	/**
 	 * 【MVCの基礎】
@@ -30,11 +30,45 @@ public class ControllerServlet extends HttpServlet {
 	 */
 	/**
 	 * 【クライアント側：JSPの作成】
-	 *
+	 * このチュートリアルでは、リクエスト画面を一つ、リスポンス画面を二つ用意する。
+	 * 要点：UserBeanクラスの引用
+	 *     ・リスポンス画面の一つに実装する設定：<jsp:useBean id="user" scope="request" class="lesson07_mvc.UserBean" />
+	 *     ・Beanクラスを指定、インスタンス名の付与、スコープ設定を行う
+	 *     ・Model検索結果をスクリプト式（<%= user.getId() %>）で引用できる
+	 *     ※恐らく、①SQLの実行をコントローラ側で、②表示項目の指定をJSP側でやっている感覚かな
+	 * 仕様：
+	 *     ・基本的に、フォームを利用する：①情報送信の場合は、type=text、②単なる画面遷移の場合、type=buttonとリンク
+	 *     ・正常のリクエストの場合、Bean情報を取得して表示（これは普通のHTMLタグ）
 	 */
 	/**
-	 * 【サーバ側：Modelの仕様】
+	 * 【サーバ側：MVCの仕様】
+	 *「Controller」
+	 *   基本設計
+	 *   ・リクエストのKeyを取得する
+	 *   ・【インターフェイス設計】Keyを元に、UserBeanの判定・取得処理を呼び出す
+	 *   ・判定結果をリスポンスとして返す
 	 *
+	 *   詳細設計
+	 *   ・引数のリクエストを取得し、String変数に格納する
+	 *   ・Modelをインスタンス化する
+	 *   ・DAO（相当）をインスタンス化する際に、Modelの処理を利用して、データを取得する
+	 *   ・取得の成否を確認し、以下の処理を行う
+	 *       ①正常の場合：
+	 *       	リクエストオブジェクトに、UserBeanオブジェクトを渡す（Keyも設定する）。
+	 *       	次に、遷移先画面のリンクを登録する。。
+	 *       ②異常の場合：
+	 *       	シンプルに遷移先画面のリンクを登録する
+	 *   ・前処理を元に、フォワードする
+	 *
+	 * 「Model」
+	 *    詳細設計
+	 *    ・DAOをインスタンス化する
+	 *    ・Keyの判定を行う
+	 *    ・判定結果に基づく値設定を行う
+	 *    ・DAOのインスタンスをリターン値に返答する
+	 *    補足
+	 *    ・判定結果の個所をメソッド化してもいいかな
+	 *    ・DAOが、プロパティ定義を行うもの二見える
 	 */
 
 	private static final long serialVersionUID = 1L;
@@ -71,13 +105,13 @@ public class ControllerServlet extends HttpServlet {
 			// ③-1-1-1 setAttributeメソッドを使ってモデルの情報をセット
 			request.setAttribute("user", bean);
 			// ③-1-1-2 つぎに表示させる画面（ビュー）を指定
-			rd = request.getRequestDispatcher("./Lesson06_MVC/userResponse.jsp");
+			rd = request.getRequestDispatcher("../Lesson07_MVC/userResponse.jsp");
 
 		} else {
 
 			// ③-1-2 モデルの情報が存在しない（IDに紐づくユーザ情報がない）場合
 			// ③-1-2-1 つぎに表示させる画面（ビュー）を指定
-			rd = request.getRequestDispatcher("./Lesson06_MVC/userError.jsp");
+			rd = request.getRequestDispatcher("../Lesson07_MVC/userError.jsp");
 		}
 
 		// ③-2 つぎの画面を表示
