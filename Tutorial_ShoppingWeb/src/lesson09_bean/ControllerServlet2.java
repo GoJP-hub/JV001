@@ -50,13 +50,13 @@ public class ControllerServlet2 extends HttpServlet {
 			// ③-1-1-1 setAttributeメソッドを使ってモデルの情報をセット
 			request.setAttribute("user", bean);
 			// ③-1-1-2 つぎに表示させる画面（ビュー）を指定
-			rd = request.getRequestDispatcher("./WEB-sample09/userResponse2.jsp");
+			rd = request.getRequestDispatcher("./Lesson09_Bean/userResponse2.jsp");
 
 		} else {
 
 			// ③-1-2 モデルの情報が存在しない（IDに紐づくユーザ情報がない）場合
 			// ③-1-2-1 つぎに表示させる画面（ビュー）を指定
-			rd = request.getRequestDispatcher("./WEB-sample09/userError2.jsp");
+			rd = request.getRequestDispatcher("./Lesson09_Bean/userError2.jsp");
 		}
 
 		// ③-2 つぎの画面を表示

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
-<jsp:useBean id="user" scope="request" class="websample09.UserBean2" />
+<jsp:useBean id="user" scope="request" class="lesson09_bean.SampleUserBean" />
 
 <!DOCTYPE html>
 <html>
@@ -16,20 +16,20 @@
 		<% if(user.getAuth() == 1) { %>
 			<p>年齢:<%=user.getAge() %></p>
 		<% } %>
-		
+
 <%--
 		<% if(user.getAuth() == 1) { %>
 			<p>ID:<jsp:getProperty property="id" name="user"/></p>
 		<% } %>
-		
+
 			<p>名前:<jsp:getProperty property="name" name="user"/></p>
-		
+
 		<% if(user.getAuth() == 1) { %>
 			<p>年齢:<jsp:getProperty property="age" name="user"/></p>
 		<% } %>
 --%>
 		<form>
-			<input type="button" onclick="location.href='./WEB-sample09/userRequest2.jsp'" value="戻る">
+			<input type="button" onclick="location.href='./Lesson09_Bean/userRequest2.jsp'" value="戻る">
 		</form>
 	</body>
 </html>
