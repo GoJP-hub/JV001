@@ -30,7 +30,9 @@
 				<input class="common_button" type="submit" name="submit"  value="ログイン"/>
 				<%-- ログイン済みの場合はログアウトボタンを表示 --%>
 				<% // TODO:③sessionからロイン状態が"login"であることを判定する %>
+				<% if("currently_loggedin".equals(session.getAttribute("login"))){ %>
 				<input class="common_button" type="submit" name="submit" value="ログアウト"/>
+				<% } %>
 			</form>
 		</div>
 	</body>

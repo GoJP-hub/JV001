@@ -61,7 +61,7 @@ public class LoginServlet extends HttpServlet {
 				// モデル（ユーザ情報）
 				session.setAttribute("user_lesson10", bean);
 				// ログイン状態
-				session.setAttribute("login", "login");
+				session.setAttribute("login", "currently_loggedin");
 				// セッション有効時間（3分）
 				session.setMaxInactiveInterval(180);
 				// ③-2-2 つぎに表示させる画面（ビュー）を指定
